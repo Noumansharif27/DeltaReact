@@ -74,3 +74,20 @@ return (
 ```
 
 > React Fragment is just an emptry pair of tags which works as a parent tags to group a set of tags without creating an exter nodes in or DOM.
+
+### JSX in curly braces
+> Every code written inside of the curly braces would b treated as a pure JavaScript code.
+e.g.
+
+```js
+function App() {
+    let name: "Shradhs";
+    return (
+        <>
+         <p>2 * 2 = {2 * 2}</p>
+         <h4>Hi, {name}</h4>
+         <p>2 * 2 = {2 * 2}</p>
+         <h4>Hi, {name}</h4>
+        </>
+    )
+```

@@ -1,6 +1,6 @@
 import "./App.css"
 import Tittle from "./Tittle"
-
+import ProductTab from "./ProductTab.jsx"
 function Description () {
   return <h3>This is Description</h3>
 }
@@ -8,10 +8,7 @@ function Description () {
 function App() {
   return (
     <>
-  <Tittle />
-  <Description />
-  <Tittle />
-  <Description />
+  <ProductTab />
     </>
   )
 }

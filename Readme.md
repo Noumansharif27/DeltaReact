@@ -203,3 +203,5 @@ export default Product;
 ```
 
 Now in this of code we exactly known our props and instead of using object.key method we are directly using the parameters/Props to display our dynamic values.
+
+> As you may had noticed in props we have to use “” Quotation marks to pass down our String value while or our numbers we have to use curly braces { } for that.

@@ -149,3 +149,57 @@ function App() {
 ```
 
 `Create a seprate file for a component and if we have to bundle that component for repetation we should create an other file for that  bundelling then.`
+
+### React Props:
+
+> Props are the information that you pass to a JSX tag.
+
+```jsx
+import Product from "./Product.jsx";
+
+function ProductTab() {
+  return (
+    <>
+      <Product tittle="Laptop" price={40000} />
+      <Product tittle="Mobile" price={30000} />
+      <Product tittle="Pen" price={10} />
+    </>
+  );
+}
+
+export default ProductTab;
+```
+
+```jsx
+import "./Product.css";
+
+function Product(Props) {
+  return (
+    <div className="Product">
+      <h1>{Props.tittle}</h1>
+      <p>{Props.price}</p>
+    </div>
+  );
+}
+
+export default Product;
+```
+
+In the above example our props are treated as an object in the component file, we can use object key method to display its value.
+
+```jsx
+import "./Product.css";
+
+function Product({ tittle, price }) {
+  return (
+    <div className="Product">
+      <h1>{tittle}</h1>
+      <p>{price}</p>
+    </div>
+  );
+}
+
+export default Product;
+```
+
+Now in this of code we exactly known our props and instead of using object.key method we are directly using the parameters/Props to display our dynamic values.

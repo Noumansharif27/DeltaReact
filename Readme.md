@@ -205,3 +205,50 @@ export default Product;
 Now in this of code we exactly known our props and instead of using object.key method we are directly using the parameters/Props to display our dynamic values.
 
 > As you may had noticed in props we have to use “” Quotation marks to pass down our String value while or our numbers we have to use curly braces { } for that.
+
+### Passing Arrays & Objects to Props:
+
+```jsx
+import Product from "./Product.jsx";
+
+function ProductTab() {
+  let options = ["high-tech","durable", "fast"]
+  let options2 = {a:"high-tech",b: "durable",c: "fast"}
+  return (
+    <>
+      <Product tittle="Laptop" price={40000} feature={options} feature2={options2} />
+    </>
+  );
+}
+
+export default ProductTab;
+```
+
+```jsx
+import "./Product.css";
+
+function Product({ tittle, price, feature, feature2 }) {
+  return (
+    <div className="Product">
+      <h1>{tittle}</h1>
+      <p>{price}</p>
+      <p>{feature}</p>
+      <p>{feature2.a}</p>
+    </div>
+  );
+}
+
+export default Product;
+```
+
+As you can see we just have to use braces to pass array or object in props, Mostly instead of defining the arrays and objects seprately before passing them we can dirrectly pass them, e.g.
+
+```jsx
+  <Product tittle="Laptop" price={40000} feature={["hightech", "durable", "fast"]} />
+```
+
+`Our output would look like something like that`
+
+<img src="./basic-react-app/public/array&objectInProps.png" alt="Image of an example output of Array and object's output in props"/>
+
+`In the abve output you may see tha although we had pass our arrays individual elements in props but we can see that all the items are not seprated by commas`

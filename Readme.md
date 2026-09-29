@@ -212,11 +212,16 @@ Now in this of code we exactly known our props and instead of using object.key m
 import Product from "./Product.jsx";
 
 function ProductTab() {
-  let options = ["high-tech","durable", "fast"]
-  let options2 = {a:"high-tech",b: "durable",c: "fast"}
+  let options = ["high-tech", "durable", "fast"];
+  let options2 = { a: "high-tech", b: "durable", c: "fast" };
   return (
     <>
-      <Product tittle="Laptop" price={40000} feature={options} feature2={options2} />
+      <Product
+        tittle="Laptop"
+        price={40000}
+        feature={options}
+        feature2={options2}
+      />
     </>
   );
 }
@@ -244,7 +249,11 @@ export default Product;
 As you can see we just have to use braces to pass array or object in props, Mostly instead of defining the arrays and objects seprately before passing them we can dirrectly pass them, e.g.
 
 ```jsx
-  <Product tittle="Laptop" price={40000} feature={["hightech", "durable", "fast"]} />
+<Product
+  tittle="Laptop"
+  price={40000}
+  feature={["hightech", "durable", "fast"]}
+/>
 ```
 
 `Our output would look like something like that`
@@ -252,3 +261,73 @@ As you can see we just have to use braces to pass array or object in props, Most
 <img src="./basic-react-app/public/array&objectInProps.png" alt="Image of an example output of Array and object's output in props"/>
 
 `In the abve output you may see tha although we had pass our arrays individual elements in props but we can see that all the items are not seprated by commas`
+
+### Rendering Array:
+
+> To Render array in a different format then a long string, like we may want each of its element to be render in a un-ordered list, or as a seprate element itself, we have `2` different ways to achieve that.
+
+> e.g.
+> Instead of sending just array's value we can send array of element/array of HTML elements
+
+```jsx
+function ProductTab() {
+  let options = [<li>"high-tech"</li>, <li>"durable"</li>, <li>"fast"</li>];
+  return (
+    <>
+      <Product tittle="Laptop" price={40000} feature={options} />
+    </>
+  );
+}
+
+export default ProductTab;
+```
+
+> As of our above code we can see that we first convert out arrays individual elements into HTML element before sending it as a props, This method is good but here we have do to the changes manually each time for every elements which can be quite of exhausting and timetaking, now instead of doing it manually we will try `2nd method` of doing that.
+
+```jsx
+function ProductTab() {
+  let options = ["high-tech", "durable", "fast"];
+  let UpdatedOptions = options.map((feature) => <li>{feature}</li>);
+  return (
+    <>
+      <Product tittle="Laptop" price={40000} feature={UpdatedOptions} />
+    </>
+  );
+}
+
+export default ProductTab;
+```
+
+> Now in this example we use `.map()` function of array to convert each of the array's element into an HTML element.Now instead of creating a whole new variable for that work we can directly use our method inside props which will catch the return value of our method and print it our as we wanted.
+
+```jsx
+function ProductTab() {
+  let options = ["high-tech", "durable", "fast"];
+  return (
+    <>
+      <Product tittle="Laptop" price={40000} features={options} />
+    </>
+  );
+}
+
+export default ProductTab;
+
+// Inside Product.JSX file
+
+import "./Product.css";
+
+function Product({ tittle, price, features }) {
+  return (
+    <div className="Product">
+      <h1>{tittle}</h1>
+      <p>{price}</p>
+      <p>{features.map((feature) => (
+          <li>{feature}</li>
+        ))}</p>
+    </div>
+  );
+}
+
+export default Product;
+
+```

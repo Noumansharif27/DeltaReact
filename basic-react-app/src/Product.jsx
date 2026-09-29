@@ -1,12 +1,11 @@
 import "./Product.css";
 
-function Product({ tittle, price, feature }) {
+function Product({ tittle, price }) {
   return (
     <div className="Product">
       <h1>{tittle}</h1>
       <p>{price}</p>
-      <p>{feature}</p>
-      {/* <p>{feature2.a}</p> */}
+      {price >= 40000 && <p>Discount 5%</p>}
     </div>
   );
 }

@@ -316,7 +316,7 @@ export default ProductTab;
 
 import "./Product.css";
 
-function Product({ tittle, price, features }) {
+function Product({ tittle, price,features }) {
   return (
     <div className="Product">
       <h1>{tittle}</h1>
@@ -331,3 +331,44 @@ function Product({ tittle, price, features }) {
 export default Product;
 
 ```
+
+> Now this code is more readable and clean.
+
+### Conditionals
+
+> We can use condition like if else, or ternary Operators to perform a specific task.
+
+```js
+import "./Product.css";
+
+function Product({ tittle, price }) {
+  let isDiscount = price >= 40000 ? <p>Discount 5%</p> : null;
+  return (
+    <div className="Product">
+      <h1>{tittle}</h1>
+      <p>{price}</p>
+      {isDiscount}
+    </div>
+  );
+}
+
+export default Product;
+```
+
+> we can also use the condition in inline-method which will be more efficient as we wouldn't have to create an etra variable.
+
+```js
+{
+  price >= 40000 ? <p>Discount 5%</p> : null;
+}
+```
+
+#### && operator
+
+```js
+{
+  price >= 40000 && <p>Discount 5%</p>;
+}
+```
+
+> Now instead of using turnary operator normaly we can use `&&` as a condition which will only work when our first condition is correct and will move and to perform the tast if our condition is incorrect it will ignore the task and the code would jump to the next line.

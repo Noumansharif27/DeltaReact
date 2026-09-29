@@ -355,6 +355,8 @@ function Product({ tittle, price }) {
 export default Product;
 ```
 
+`We cannot put <b>" "</b> Empty string in out tru or fasle performance are as it will create an empty element in DOM.`
+
 > we can also use the condition in inline-method which will be more efficient as we wouldn't have to create an etra variable.
 
 ```js
@@ -365,10 +367,30 @@ export default Product;
 
 #### && operator
 
-```js
+```jsx
 {
   price >= 40000 && <p>Discount 5%</p>;
 }
 ```
 
 > Now instead of using turnary operator normaly we can use `&&` as a condition which will only work when our first condition is correct and will move and to perform the tast if our condition is incorrect it will ignore the task and the code would jump to the next line.
+
+### Dynamic Component Styling
+
+```jsx
+function Product({ tittle, price }) {
+  let isDiscount = price >= 30000;
+  let styles = { backgroundColor: isDiscount ? "pink" : "yellow" };
+  return (
+    <div className="Product" style={styles}>
+      <h1>{tittle}</h1>
+      <p>{price}</p>
+      {isDiscount && <p>Discount 5%</p>}
+    </div>
+  );
+}
+
+export default Product;
+```
+
+> Using condition in JSX we can dynamically style our component as we want.

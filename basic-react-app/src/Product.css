@@ -1,6 +1,19 @@
 .Product {
   border: 2px solid white;
-  color: aqua;
-  /* background: blue; */
+  color: black;
+  background: white;
   margin: 1rem 0;
+  padding: 2px 1rem;
+}
+
+.ProductTab {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ProductPrice {
+  border-top: 1px solid black;
+  background-color: gold;
+  color: white;
 }

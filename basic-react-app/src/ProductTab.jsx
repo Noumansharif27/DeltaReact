@@ -1,15 +1,32 @@
 import Product from "./Product.jsx";
 
 function ProductTab() {
-  // let options = [<li>"high-tech"</li>, <li>"durable"</li>, <li>"fast"</li>];
-  // let options = ["high-tech", "durable", "fast"];
-  // let options2 = {a:"high-tech",b: "durable",c: "fast"}
   return (
-    <>
-      <Product tittle="Laptop" price={40000} />
-      <Product tittle="Mobile" price={30000} />
-      <Product tittle="Pen" price={10} />
-    </>
+    <div className="ProductTab">
+      <Product
+        tittle="Logitech MX Master 35"
+        description={["8000 DPI", "5 functional buttons"]}
+        price={{ old: [19, 99], new: [15, 99] }}
+      />
+      <Product
+        tittle="Apple Pencil 2nd Gen"
+        description={["Intutive touch serface", "Design for iPad Pro"]}
+        price={{ old: [9, 99], new: [5, 99] }}
+      />
+      <Product
+        tittle="Zebronic Zeb-Transformar"
+        description={[
+          "Smooth Buttons",
+          "Always better feels to be out on grass",
+        ]}
+        price={{ old: [109, 99], new: [105, 99] }}
+      />
+      <Product
+        tittle="Portonic Tod 23, WIreless Mouse"
+        description={["2 days power Backup", "Smoot like butter"]}
+        price={{ old: [29, 99], new: [17, 99] }}
+      />
+    </div>
   );
 }
 

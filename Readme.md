@@ -212,11 +212,16 @@ Now in this of code we exactly known our props and instead of using object.key m
 import Product from "./Product.jsx";
 
 function ProductTab() {
-  let options = ["high-tech","durable", "fast"]
-  let options2 = {a:"high-tech",b: "durable",c: "fast"}
+  let options = ["high-tech", "durable", "fast"];
+  let options2 = { a: "high-tech", b: "durable", c: "fast" };
   return (
     <>
-      <Product tittle="Laptop" price={40000} feature={options} feature2={options2} />
+      <Product
+        tittle="Laptop"
+        price={40000}
+        feature={options}
+        feature2={options2}
+      />
     </>
   );
 }
@@ -244,7 +249,11 @@ export default Product;
 As you can see we just have to use braces to pass array or object in props, Mostly instead of defining the arrays and objects seprately before passing them we can dirrectly pass them, e.g.
 
 ```jsx
-  <Product tittle="Laptop" price={40000} feature={["hightech", "durable", "fast"]} />
+<Product
+  tittle="Laptop"
+  price={40000}
+  feature={["hightech", "durable", "fast"]}
+/>
 ```
 
 `Our output would look like something like that`
@@ -254,7 +263,6 @@ As you can see we just have to use braces to pass array or object in props, Most
 `In the abve output you may see tha although we had pass our arrays individual elements in props but we can see that all the items are not seprated by commas`
 
 Rendering array
-
 
 > To Render array in a different format then a long string, like we may want each of its element to be render in a un-ordered list, or as a seprate element itself, we have `2` different ways to achieve that.
 
@@ -389,36 +397,71 @@ export default Product;
 
 ### Handeling Clicks element
 
->  To add the functionaliy of `addEvenetListener` like in JavaScript, we use `onClick` to add functionality in our React components.
+> To add the functionaliy of `addEvenetListener` like in JavaScript, we use `onClick` to add functionality in our React components.
 
 ```jsx
 function Button() {
-    let print = () => {
-        console.log("Hello World!");
-    }
+  let print = () => {
+    console.log("Hello World!");
+  };
 
-    let mouseOverHandeler = ()=> {
-        console.log("Bye!");
-    }
+  let mouseOverHandeler = () => {
+    console.log("Bye!");
+  };
 
-    let doubleClickHandeler = () => {
-        console.log("You Dubble Clicked!");
-    }
+  let doubleClickHandeler = () => {
+    console.log("You Dubble Clicked!");
+  };
 
-    return (
-        <>
-        <button onClick={print}>Cick me!</button>
-      <p onMouseOver={mouseOverHandeler}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga laboriosam autem earum commodi sit molestias totam quasi tempore delectus nam tenetur, dolorem repellendus ex quia? Sequi architecto libero vitae ad?
-      Ratione, repellendus sequi, tenetur est natus veniam fugit nemo tempore quod, nesciunt ad veritatis laboriosam quam cupiditate adipisci nostrum consectetur repellat porro quaerat eligendi numquam! Eius, natus nobis. Deleniti, harum!
-      Esse, nulla sunt temporibus quae tempora aperiam porro itaque. Labore laboriosam porro ipsum quia unde optio explicabo, excepturi libero saepe quasi! Distinctio pariatur excepturi veniam, quaerat commodi consequuntur eveniet obcaecati?
-      A dicta consequuntur corporis omnis optio, sapiente amet deserunt id in ducimus tenetur sunt eaque perferendis ullam cupiditate perspiciatis consectetur neque cum adipisci blanditiis magni quisquam iste! Ex, molestias iusto.
-      Qui rerum nulla vel alias. Atque ullam nobis doloribus vero vel provident est animi quis corrupti maxime perspiciatis quos molestias blanditiis, eius qui, reprehenderit porro officia earum quaerat laboriosam. Sapiente.</p>
-        <button onDoubleClick={doubleClickHandeler}>Dubble Click me!</button>
-        </>
-    )
+  return (
+    <>
+      <button onClick={print}>Cick me!</button>
+      <p onMouseOver={mouseOverHandeler}>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga
+        laboriosam autem earum commodi sit molestias totam quasi tempore
+        delectus nam tenetur, dolorem repellendus ex quia? Sequi architecto
+        libero vitae ad? Ratione, repellendus sequi, tenetur est natus veniam
+        fugit nemo tempore quod, nesciunt ad veritatis laboriosam quam
+        cupiditate adipisci nostrum consectetur repellat porro quaerat eligendi
+        numquam! Eius, natus nobis. Deleniti, harum! Esse, nulla sunt temporibus
+        quae tempora aperiam porro itaque. Labore laboriosam porro ipsum quia
+        unde optio explicabo, excepturi libero saepe quasi! Distinctio pariatur
+        excepturi veniam, quaerat commodi consequuntur eveniet obcaecati? A
+        dicta consequuntur corporis omnis optio, sapiente amet deserunt id in
+        ducimus tenetur sunt eaque perferendis ullam cupiditate perspiciatis
+        consectetur neque cum adipisci blanditiis magni quisquam iste! Ex,
+        molestias iusto. Qui rerum nulla vel alias. Atque ullam nobis doloribus
+        vero vel provident est animi quis corrupti maxime perspiciatis quos
+        molestias blanditiis, eius qui, reprehenderit porro officia earum
+        quaerat laboriosam. Sapiente.
+      </p>
+      <button onDoubleClick={doubleClickHandeler}>Dubble Click me!</button>
+    </>
+  );
 }
 
 export default Button;
 ```
 
-> never put your function in the event arrtibute as a callout function, `onMouseOver={functionName()}` as it will result in function getting automattically trigger own its own  at the starting of the code and you will not be able to use it again dynamically, so always use just the fuction ame in the attribute instead of caling it out `onMouseOver={functionName}`
+> never put your function in the event arrtibute as a Executable, `onMouseOver={functionName()}` as it will result in function getting automattically trigger own its own at the starting of the code and you will not be able to use it again dynamically, so always pass the function non-executable e.g. `onMouseOver={functionName}`
+
+### EVent Object
+
+> Whenever we create an evenHandler an object labeled `event` gets automatically passed into our handler which has alot of detail about the event, like what even accured, to whome etc ...
+
+```jsx
+export default function Form() {
+  let onSubmitHandler = (event) => {
+    event.preventDefault();
+    console.log("Form Gets Submited!");
+  };
+  return (
+    <form onSubmit={onSubmitHandler}>
+      <input type="text" />
+      <button>Submit</button>
+    </form>
+  );
+}
+```
+
+> You may had noticed in the above mentioned coee that we used a function called as `event.preventDefault()` it is because when we create a form in JSX it has predefined some event associated to it, and by using this function we prevent those event from happening and we only define our own event we want to run on the form.

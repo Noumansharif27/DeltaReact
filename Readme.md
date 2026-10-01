@@ -212,16 +212,11 @@ Now in this of code we exactly known our props and instead of using object.key m
 import Product from "./Product.jsx";
 
 function ProductTab() {
-  let options = ["high-tech", "durable", "fast"];
-  let options2 = { a: "high-tech", b: "durable", c: "fast" };
+  let options = ["high-tech","durable", "fast"]
+  let options2 = {a:"high-tech",b: "durable",c: "fast"}
   return (
     <>
-      <Product
-        tittle="Laptop"
-        price={40000}
-        feature={options}
-        feature2={options2}
-      />
+      <Product tittle="Laptop" price={40000} feature={options} feature2={options2} />
     </>
   );
 }
@@ -249,11 +244,7 @@ export default Product;
 As you can see we just have to use braces to pass array or object in props, Mostly instead of defining the arrays and objects seprately before passing them we can dirrectly pass them, e.g.
 
 ```jsx
-<Product
-  tittle="Laptop"
-  price={40000}
-  feature={["hightech", "durable", "fast"]}
-/>
+  <Product tittle="Laptop" price={40000} feature={["hightech", "durable", "fast"]} />
 ```
 
 `Our output would look like something like that`
@@ -262,7 +253,8 @@ As you can see we just have to use braces to pass array or object in props, Most
 
 `In the abve output you may see tha although we had pass our arrays individual elements in props but we can see that all the items are not seprated by commas`
 
-### Rendering Array:
+Rendering array
+
 
 > To Render array in a different format then a long string, like we may want each of its element to be render in a un-ordered list, or as a seprate element itself, we have `2` different ways to achieve that.
 
@@ -394,3 +386,18 @@ export default Product;
 ```
 
 > Using condition in JSX we can dynamically style our component as we want.
+
+### Handeling Clicks element
+
+>  To add the functionaliy of `addEvenetListener` like in JavaScript, we use `onClick` to add functionality in our React components.
+
+```jsx
+function Button() {
+  let printHello = ()=> {
+    console.log("Hello, World!");
+  }
+  return (
+    <button onClick={PrintHello}>Click Me!</button>
+  )
+}
+```

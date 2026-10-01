@@ -470,8 +470,29 @@ export default function Form() {
 
 > The state is a build-in React object that is used to contain data or information about the compinent. A component's state can change over time; whenever it changes, the component re-renders.
 
+```jsx
+import "./App.css";
+
+function App() {
+  let count = 0;
+
+  let inCount = () => {
+    count += 1;
+    console.log(count);
+  };
+  return (
+    <>
+      <p>Count: {count}</p>
+      <button onClick={inCount}>+1</button>
+    </>
+  );
+}
+
+export default App;
+```
+
 ### Hooks
 
 > Hools were a new additon in React 16.8 (at arround 2019).
 
-> They let you use state and other React features without writing a class, Basically when react was launched we use class components insead of functional component as now and because class had some features which are not available in functions we got hooks to use them.
+> They let you use state and other React features without writing a class, Basically when react was launched we use `class components` insead of `functional component` as now and because class had some features which are not available in functions we got hooks to use them.

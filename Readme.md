@@ -445,7 +445,7 @@ export default Button;
 
 > never put your function in the event arrtibute as a Executable, `onMouseOver={functionName()}` as it will result in function getting automattically trigger own its own at the starting of the code and you will not be able to use it again dynamically, so always pass the function non-executable e.g. `onMouseOver={functionName}`
 
-### EVent Object
+### Event Object
 
 > Whenever we create an evenHandler an object labeled `event` gets automatically passed into our handler which has alot of detail about the event, like what even accured, to whome etc ...
 
@@ -465,3 +465,13 @@ export default function Form() {
 ```
 
 > You may had noticed in the above mentioned coee that we used a function called as `event.preventDefault()` it is because when we create a form in JSX it has predefined some event associated to it, and by using this function we prevent those event from happening and we only define our own event we want to run on the form.
+
+### State in React
+
+> The state is a build-in React object that is used to contain data or information about the compinent. A component's state can change over time; whenever it changes, the component re-renders.
+
+### Hooks
+
+> Hools were a new additon in React 16.8 (at arround 2019).
+
+> They let you use state and other React features without writing a class, Basically when react was launched we use class components insead of functional component as now and because class had some features which are not available in functions we got hooks to use them.

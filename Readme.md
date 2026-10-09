@@ -495,4 +495,40 @@ export default App;
 
 > Hools were a new additon in React 16.8 (at arround 2019).
 
-> They let you use state and other React features without writing a class, Basically when react was launched we use `class components` insead of `functional component` as now and because class had some features which are not available in functions we got hooks to use them.
+> They let you help to use states and other React features without writing a class, Basically when react was launched we use `class components` insead of `functional component` as now and because class had some features which are not available in functions we got hooks to use them.
+
+### useState(0)
+
+> useState is a React Hook that lets you add a state variable to your component.
+
+```jsx
+consr[(state, setState)] = useState(initialState);
+```
+
+`UseState resturns an array with exactly two values:
+
+1.The current state. uring the first rendering, it will match the initialState you have passed 2. The set function that lets you update the state to a different value and trigger a re-rendering`
+
+```jsx
+import "./App.css";
+import { useState } from "react";
+
+function App() {
+  let [count, setCount] = useState(0);
+
+  let inCount = () => {
+    setCount(count + 1);
+    console.log(count);
+  };
+  return (
+    <>
+      <p>Count: {count}</p>
+      <button onClick={inCount}>+1</button>
+    </>
+  );
+}
+
+export default App;
+```
+
+``The Re-rendering in JSX works differet using closure so when you see your count = 1 but the print value shows 0 and on count = 2 print is 1'

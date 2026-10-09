@@ -1,10 +1,11 @@
 import "./App.css";
+import { useState } from "react";
 
 function App() {
-  let count = 0;
+  let [count, setCount] = useState(0);
 
   let inCount = () => {
-    count += 1;
+    setCount(count + 1);
     console.log(count);
   };
   return (

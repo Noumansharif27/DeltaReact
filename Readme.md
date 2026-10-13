@@ -531,4 +531,23 @@ function App() {
 export default App;
 ```
 
-``The Re-rendering in JSX works differet using closure so when you see your count = 1 but the print value shows 0 and on count = 2 print is 1'
+`The Re-rendering in JSX works differet using closure so when you see your count = 1 but the print value shows 0 and on count = 2 print is 1'
+
+~! A State can only be defined inside the component~
+
+### Closure in JSX
+
+> Closure in JSX simply means that when an inner function uses a variable of an outer function, then this variable is always preserved so that there should not be an error.
+
+```jsx
+function outer() {
+  let b = 10;
+  function inner() {
+    let a = 20;
+    console.log(a + b);
+  }
+  inner();
+}
+```
+
+let say for some reason the line `let b = 10;` was not executed while the inner function was called would we get an error in console.log or the variable's value gets displayed? as per the normal programming logic we would get an error as `b` was not initilized before it was being used, but in `JSX` when an inner function uses a variable/value of an outer function then the variable/value of that outer function gets reserved so even it did not get executed but it was preserved in the program and we gets out answer based on our function.
